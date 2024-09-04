@@ -1,0 +1,25 @@
+################################################################################
+### generated-with:
+###   type: R-package
+###   name: kwb.pkgbuild
+###   version: 0.2.3
+###   installed-from: https://kwb-r.r-universe.dev (R 4.4.0)
+###   installed-on: '2024-08-16'
+### generated-by:
+###   user: dbaldw
+###   function-call: kwb.pkgbuild::use_autopkgdown("kwb.1dbear")
+### generated-on: 2024-09-04 11:04:30.178717
+################################################################################
+
+
+pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - gh-pages
