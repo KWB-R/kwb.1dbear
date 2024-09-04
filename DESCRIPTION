@@ -1,0 +1,22 @@
+Package: kwb.1dbear
+Title: R Package for Generic Calculation of Attenuation of PMT & Other
+    Substances During Riverbank Filtration
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Dwight", "Baldwin", , "dwight.baldwin@kompetenz-wasser.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9329-5973")),
+    person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
+  )
+Description: R package for generic calculation of attenuation of PMT &
+    other substances during riverbank filtration.
+License: MIT + file LICENSE
+URL: https://github.com/KWB-R/kwb.1dbear
+BugReports: https://github.com/KWB-R/kwb.1dbear/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.0
+Suggests: 
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
