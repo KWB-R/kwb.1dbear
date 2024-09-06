@@ -166,16 +166,18 @@ for (i in 1:nrow(combinations)) {
 plot_list
 
 
-bear1d_vienna_combined <- kwb.1dbear::calculate_bear1d(n_values = 0.15,
-                                  rs_values = 2.7,
-                                  foc_values = 0.002,
-                                  log_koc_values = c(1,2.9),
-                                  hl_values = c(500,2000),
-                                  C0 = 1,
-                                  D_values = 10,
-                                  v_values = 21.3,
-                                  t_values = seq(0, 350, by=1),
-                                  x_values = 141)
+bear1d_vienna_combined <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.15,
+  rs_values = 2.7,
+  foc_values = 0.002,
+  log_koc_values = c(1,2.9),
+  hl_values = c(500,2000),
+  C0 = 1,
+  D_values = 10,
+  v_values = 21.3,
+  t_values = seq(0, 350, by=1),
+  x_values = 141
+)
 
 
 # Combine the plots
@@ -193,16 +195,18 @@ hl_values <- seq(1, 2000, length.out = 100) #half life time
 t_values <- c(max(hl_values * max(log_koc_values))) #time [T]
 
 
-bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(n_values = 0.15,
-                                                       rs_values = 2.7,
-                                                       foc_values = 0.002,
-                                                       log_koc_values = seq(0.1, 6, length.out = 100),
-                                                       hl_values =  seq(1, 2000, length.out = 100),
-                                                       C0 = 1,
-                                                       D_values = 10,
-                                                       v_values = 21.3,
-                                                       t_values = max(hl_values * max(log_koc_values)),
-                                                       x_values = 141)
+bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.15,
+  rs_values = 2.7,
+  foc_values = 0.002,
+  log_koc_values = seq(0.1, 6, length.out = 100),
+  hl_values =  seq(1, 2000, length.out = 100),
+  C0 = 1,
+  D_values = 10,
+  v_values = 21.3,
+  t_values = max(hl_values * max(log_koc_values)),
+  x_values = 141
+)
 
 kwb.1dbear::plot_heatmap(bear1d_vienna_heatmap)
 
@@ -263,14 +267,14 @@ for (i in 1:nrow(combinations)) {
 #   xmin = 1, xmax = 4,
 #   ymin = 120, ymax = 600
 # )
- # rect_data <- data.frame( ### Surany Parameters
- #  xmin = 1, xmax = 1.9,
- #  ymin = 500, ymax = 2000
- # )
+# rect_data <- data.frame( ### Surany Parameters
+#  xmin = 1, xmax = 1.9,
+#  ymin = 500, ymax = 2000
+# )
 rect_data <- data.frame( ### Vienna / Tahi (10 PFAS) Parameters
   xmin = 1, xmax = 2.9,
   ymin = 500, ymax = 2000
- )
+)
 ################################################################
 
 result_heatmap <- bear1d_vienna_heatmap
@@ -287,7 +291,7 @@ heatmap_plot <- ggplot(result_heatmap, aes(y = hl, x = log_koc, fill = Cx)) +
   # label.placer = label_placer_fraction(0.1)) +# Add contour lines with labels
 
   # Vienna CS contours
-   geom_contour(aes(z=Cx), breaks = c(0.93), color = "white", size = 1.5)+ # C/C0 10 PFAS MW1
+  geom_contour(aes(z=Cx), breaks = c(0.93), color = "white", size = 1.5)+ # C/C0 10 PFAS MW1
   # geom_contour(aes(z=Cx), breaks = c(0.96), color = "yellow", size = 1)+ # C/C0 Carbamazepine
   # geom_contour(aes(z=Cx), breaks = c(0.09), color = "hotpink", size = 1)+ # C/C0 Diclofenac
   # geom_contour(aes(z=Cx), breaks = c(0.98,0.8), color = "cornflowerblue", size = 0.75, linetype = "dashed")+ # C/C0 10 PFAS Min/Max
@@ -298,19 +302,19 @@ heatmap_plot <- ggplot(result_heatmap, aes(y = hl, x = log_koc, fill = Cx)) +
 
 
   # ## Tahi CS contours
-   # geom_contour(aes(z=Cx), breaks = c(0.73), color = "white", size = 2)+ # Tahi (Budapest) CS
+  # geom_contour(aes(z=Cx), breaks = c(0.73), color = "white", size = 2)+ # Tahi (Budapest) CS
   # metR::geom_text_contour(aes(z = Cx), breaks = c(0.73),
   # stroke = 0.1, skip = 0, label.placer = label_placer_fraction(0.01)) +# Add contour lines for 0.1 to 0.9 #Tahi Budapest CS values
-#
-#   ## Surany CS contours
-#
-#     geom_contour(aes(z=Cx), breaks = c(0.8), color = "white", size = 2)+ # Surany (Budapest) CS
+  #
+  #   ## Surany CS contours
+  #
+  #     geom_contour(aes(z=Cx), breaks = c(0.8), color = "white", size = 2)+ # Surany (Budapest) CS
   ## # Surany Rectangle
-   #   #metR::geom_text_contour(aes(z = Cx), breaks = c(0.8),
-                          #stroke = 0.1, skip = 0, label.placer = label_placer_fraction(0.31)) +# Add contour lines for 0.1 to 0.9 #Tahi Budapest CS values
+  #   #metR::geom_text_contour(aes(z = Cx), breaks = c(0.8),
+  #stroke = 0.1, skip = 0, label.placer = label_placer_fraction(0.31)) +# Add contour lines for 0.1 to 0.9 #Tahi Budapest CS values
   # # Surany Rectangle
-    # geom_rect(data = rect_data, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
-    #             fill = "grey", color = "grey", alpha = 0.2) +
+  # geom_rect(data = rect_data, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+  #             fill = "grey", color = "grey", alpha = 0.2) +
 
   scale_fill_gradientn(
     limits = c(0, 1),

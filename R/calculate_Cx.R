@@ -57,6 +57,9 @@ calculate_Cx <- function(x, t, v, D, retardation, C0, k) {
   e <- calculate_e(k, D, retardation, v, t)
   f <- calculate_f(D, retardation, t)
   g <- calculate_g(x, v, D)
-  C0 / 2 * (exp(g * (1 - e)) * pracma::erfc((x - v * t / retardation * e) / f) +
-              exp(g * (1 + e)) * pracma::erfc((x + v * t / retardation * e) / f))
+  delta <- v * t / retardation * e
+  C0 / 2 * (
+    exp(g * (1 - e)) * pracma::erfc((x - delta) / f) +
+      exp(g * (1 + e)) * pracma::erfc((x + delta) / f)
+  )
 }

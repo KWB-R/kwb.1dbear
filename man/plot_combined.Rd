@@ -4,10 +4,14 @@
 \alias{plot_combined}
 \title{Plot Combined}
 \usage{
-plot_combined(bear1d_list)
+plot_combined(bear1d_list, text_size = 20, line_width = 1.25)
 }
 \arguments{
 \item{bear1d_list}{Bear1D list as retrieved by \code{\link{calculate_bear1d}}}
+
+\item{text_size}{size of plot title and axis labels, default: 20}
+
+\item{line_width}{line width, default: 1.25}
 }
 \value{
 combined plot
