@@ -1,4 +1,9 @@
 ---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+---
 title: "Tutorial"
 output: rmarkdown::html_vignette
 vignette: >
@@ -6,7 +11,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
+  
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -20,51 +25,56 @@ knitr::opts_chunk$set(
 ### Budapest Tahi
 
 ```{r Budapest_Tahi}
-bear1d_tahi_combined <- kwb.1dbear::calculate_bear1d(n_values = 0.3,
-                                  rs_values = 2.7,
-                                  foc_values = 0.002,
-                                  log_koc_values = c(1,2.9),
-                                  hl_values = c(500,2000),
-                                  C0 = 1,
-                                  D_values = 10,
-                                  v_values = 2.14,
-                                  t_values = seq(0, 350, by=1),
-                                  x_values = 60)
+hl_values <- c(500, 2000)
 
+bear1d_tahi_combined <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.3,
+  rs_values = 2.7,
+  foc_values = 0.002,
+  log_koc_values = c(1, 2.9),
+  hl_values = hl_values,
+  C0 = 1,
+  D_values = 10,
+  v_values = 2.14,
+  t_values = seq(0, 350, by=1),
+  x_values = 60
+)
 
 # Combine the plots
 kwb.1dbear::plot_combined(bear1d_list = bear1d_tahi_combined)
 
+# Generate heat map
+log_koc_values <- seq(0.1, 6, length.out = 100)
 
-# generate heat map
+bear1d_tahi_heatmap <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.3,
+  rs_values = 2.7,
+  foc_values = 0.002,
+  log_koc_values = log_koc_values,
+  hl_values = seq(1, 2000, length.out = 100),
+  C0 = 1,
+  D_values = 10,
+  v_values = 2.14,
+  t_values = max(hl_values * max(log_koc_values)),
+  x_values = 60
+)
 
-bear1d_tahi_heatmap <- kwb.1dbear::calculate_bear1d(n_values = 0.3,
-                                                       rs_values = 2.7,
-                                                       foc_values = 0.002,
-                                                       log_koc_values = seq(0.1, 6, length.out = 100),
-                                                       hl_values =  seq(1, 2000, length.out = 100),
-                                                       C0 = 1,
-                                                       D_values = 10,
-                                                       v_values = 2.14,
-                                                       t_values = max(hl_values * max(log_koc_values)),
-                                                       x_values = 60)
-
-kwb.1dbear::plot_heatmap(bear1d_tahi_heatmap)
+kwb.1dbear::plot_heatmap(bear1d_list = bear1d_tahi_heatmap)
 ```
 
 ### Budapest Surany
 
 ```{r Budapest_Surany}
 bear1d_surany_combined <- kwb.1dbear::calculate_bear1d(n_values = 0.3,
-                                  rs_values = 2.7,
-                                  foc_values = 0.002,
-                                  log_koc_values = c(1,1.9),
-                                  hl_values = c(500,2000),
-                                  C0 = 1,
-                                  D_values = 10,
-                                  v_values = 1.38,
-                                  t_values = seq(0, 700, by=1),
-                                  x_values = 228)
+                                                       rs_values = 2.7,
+                                                       foc_values = 0.002,
+                                                       log_koc_values = c(1,1.9),
+                                                       hl_values = c(500,2000),
+                                                       C0 = 1,
+                                                       D_values = 10,
+                                                       v_values = 1.38,
+                                                       t_values = seq(0, 700, by=1),
+                                                       x_values = 228)
 
 
 # Combine the plots
@@ -74,15 +84,15 @@ kwb.1dbear::plot_combined(bear1d_list = bear1d_surany_combined)
 # generate heat map
 
 bear1d_surany_heatmap <- kwb.1dbear::calculate_bear1d(n_values = 0.3,
-                                                       rs_values = 2.7,
-                                                       foc_values = 0.002,
-                                                       log_koc_values = seq(0.1, 6, length.out = 100),
-                                                       hl_values =  seq(1, 2000, length.out = 100),
-                                                       C0 = 1,
-                                                       D_values = 10,
-                                                       v_values = 1.38,
-                                                       t_values = max(hl_values * max(log_koc_values)),
-                                                       x_values = 228)
+                                                      rs_values = 2.7,
+                                                      foc_values = 0.002,
+                                                      log_koc_values = seq(0.1, 6, length.out = 100),
+                                                      hl_values =  seq(1, 2000, length.out = 100),
+                                                      C0 = 1,
+                                                      D_values = 10,
+                                                      v_values = 1.38,
+                                                      t_values = max(hl_values * max(log_koc_values)),
+                                                      x_values = 228)
 
 kwb.1dbear::plot_heatmap(bear1d_surany_heatmap)
 ```
@@ -92,15 +102,15 @@ kwb.1dbear::plot_heatmap(bear1d_surany_heatmap)
 
 ```{r vienna}
 bear1d_vienna_combined <- kwb.1dbear::calculate_bear1d(n_values = 0.15,
-                                  rs_values = 2.7,
-                                  foc_values = 0.002,
-                                  log_koc_values = c(1,2.9),
-                                  hl_values = c(500,2000),
-                                  C0 = 1,
-                                  D_values = 10,
-                                  v_values = 21.3,
-                                  t_values = seq(0, 350, by=1),
-                                  x_values = 141)
+                                                       rs_values = 2.7,
+                                                       foc_values = 0.002,
+                                                       log_koc_values = c(1,2.9),
+                                                       hl_values = c(500,2000),
+                                                       C0 = 1,
+                                                       D_values = 10,
+                                                       v_values = 21.3,
+                                                       t_values = seq(0, 350, by=1),
+                                                       x_values = 141)
 
 
 # Combine the plots
@@ -110,15 +120,15 @@ kwb.1dbear::plot_combined(bear1d_list = bear1d_vienna_combined)
 # generate heat map
 
 bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(n_values = 0.15,
-                                                       rs_values = 2.7,
-                                                       foc_values = 0.002,
-                                                       log_koc_values = seq(0.1, 6, length.out = 100),
-                                                       hl_values =  seq(1, 2000, length.out = 100),
-                                                       C0 = 1,
-                                                       D_values = 10,
-                                                       v_values = 21.3,
-                                                       t_values = max(hl_values * max(log_koc_values)),
-                                                       x_values = 141)
+                                                      rs_values = 2.7,
+                                                      foc_values = 0.002,
+                                                      log_koc_values = seq(0.1, 6, length.out = 100),
+                                                      hl_values =  seq(1, 2000, length.out = 100),
+                                                      C0 = 1,
+                                                      D_values = 10,
+                                                      v_values = 21.3,
+                                                      t_values = max(hl_values * max(log_koc_values)),
+                                                      x_values = 141)
 
 kwb.1dbear::plot_heatmap(bear1d_vienna_heatmap)
 ```

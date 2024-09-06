@@ -2,7 +2,7 @@
 # Install and load the profvis package (if not already installed)
 # install.packages("profvis")
 # Wrap your code with profvis (we have to use debug modes for models that take long to calculate..)
-# load libraries
+# load packages
 library(ggplot2)
 library(pracma)
 library(patchwork)
