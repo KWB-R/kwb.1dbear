@@ -40,9 +40,7 @@ plot_heatmap <- function(bear1d_list)
       y = .data$hl,
       x = .data$log_koc,
       fill = .data$Cx
-    ))
-
-  heatmap_plot +
+    )) +
     ggplot2::geom_tile() +
     ggplot2::geom_rect(
       data = rect_data,
@@ -57,6 +55,7 @@ plot_heatmap <- function(bear1d_list)
       alpha = 0.3,
       inherit.aes = FALSE
     ) +
+
     # Generic contours
     # geom_contour(aes(z = Cx), breaks = c(0.1, 0.2, 0.3, 0.4, 0.5,
     #                                      0.6, 0.7, 0.8, 0.9), color = "white", size = 0.5) + # add contour lines
@@ -69,7 +68,9 @@ plot_heatmap <- function(bear1d_list)
       breaks = c(0.93),
       color = "white",
       linewidth = 1.5
-    ) + # C/C0 10 PFAS MW1
+    ) +
+
+    # C/C0 10 PFAS MW1
     # geom_contour(aes(z=Cx), breaks = c(0.96), color = "yellow", size = 1)+ # C/C0 Carbamazepine
     # geom_contour(aes(z=Cx), breaks = c(0.09), color = "hotpink", size = 1)+ # C/C0 Diclofenac
     # geom_contour(aes(z=Cx), breaks = c(0.98,0.8), color = "cornflowerblue", size = 0.75, linetype = "dashed")+ # C/C0 10 PFAS Min/Max
@@ -100,24 +101,24 @@ plot_heatmap <- function(bear1d_list)
       colors = c("darkblue","blue","green","orangered","darkred"),
       breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)
     ) +
-      ggplot2::theme_bw() +
-      ggplot2::theme(
-        axis.text.x = text_element,  # Adjust the size as needed
-        axis.text.y = text_element,
-        axis.title.x = text_element,
-        axis.title.y = text_element
-      ) +
-      ggplot2::labs(
-        title = sprintf(
-          "Residence time[d] = %f, foc[-] = %s",
-          round(attr(bear1d_list, "x_values")/attr(bear1d_list, "v_values"), 0),
-          paste(attr(bear1d_list, "foc_values"), collapse = ",")
-        ),
-        x = "Log Koc",
-        y = "Half-life (days)",
-        fill = (bquote((C/C[0])))
-      )
+    ggplot2::theme_bw() +
+    ggplot2::theme(
+      axis.text.x = text_element,  # Adjust the size as needed
+      axis.text.y = text_element,
+      axis.title.x = text_element,
+      axis.title.y = text_element
+    ) +
+    ggplot2::labs(
+      title = sprintf(
+        "Residence time[d] = %f, foc[-] = %s",
+        round(attr(bear1d_list, "x_values")/attr(bear1d_list, "v_values"), 0),
+        paste(attr(bear1d_list, "foc_values"), collapse = ",")
+      ),
+      x = "Log Koc",
+      y = "Half-life (days)",
+      fill = (bquote((C/C[0])))
+    )
 
-    # Display the heatmap
-    print(heatmap_plot)
+  # Return the heatmap plot
+  heatmap_plot
 }
