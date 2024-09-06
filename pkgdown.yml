@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   Tutorial: Tutorial.html
-last_built: 2024-09-06T16:53Z
+last_built: 2024-09-06T18:14Z
 urls:
   reference: https://kwb-r.github.io/kwb.1dbear/reference
   article: https://kwb-r.github.io/kwb.1dbear/articles
