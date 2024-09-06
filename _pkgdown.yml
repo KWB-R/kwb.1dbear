@@ -1,10 +1,16 @@
 url: https://kwb-r.github.io/kwb.1dbear
 authors:
   Dwight Baldwin:
-    href: https://www.kompetenz-wasser.de/de/ueber-uns/team/dwight-baldwin
+    href: https://www.kompetenz-wasser.de/en/ueber-uns/team/dwight-baldwin
+  Michael Rustler:
+    href: https://www.kompetenz-wasser.de/en/ueber-uns/team/michael-rustler
+  PROMISCES:
+    href: https://www.kompetenz-wasser.de/en/forschung/projekte/promisces
+    html: <img src='https://promisces.eu/skin/promisces/assets/img/logo.png' alt='PROMISCES'
+      width='72' />
   Kompetenzzentrum Wasser Berlin gGmbH (KWB):
-    href: http://www.kompetenz-wasser.de
-    html: <img src='https://publications.kompetenz-wasser.de/img/KWB-Logo.svg' alt='KWB'
+    href: https://www.kompetenz-wasser.de
+    html: <img src='https://logos.kompetenz-wasser.io/KWB_Logo_M_Blau_RGB.svg' alt='KWB'
       width='72' />
 template:
   bootstrap: 5
