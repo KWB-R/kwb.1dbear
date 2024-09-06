@@ -51,7 +51,7 @@ calculate_bear1d <- function(
   combinations <- expand.grid(multi_value_params)
 
   # Loop through combinations
-  result <- lapply(1:nrow(combinations), function(i) {
+  result <- lapply(seq_len(nrow(combinations)), function(i) {
 
     param_combination <- combinations[i, ]
 
@@ -70,18 +70,20 @@ calculate_bear1d <- function(
     k <- 0.693 / hl #lambda aqueous phase decay constant [1/T]
 
     # Create a data frame for this parameter combination
+    n_values <- length(t_values) * length(x_values)
+
     data.frame(
       Cx = calculate_Cx(x_values, t_values, v_values, D_values, retardation, C0, k),
       time = rep(t_values, length(x_values)),
-      retardation = rep(retardation, length(t_values) * length(x_values)),
-      v = rep(v_values, length(t_values) * length(x_values)),
-      hl = rep(hl, length(t_values) * length(x_values)),
-      koc = rep(koc, length(t_values) * length(x_values)),
-      foc = rep(foc, length(t_values) * length(x_values)),
+      retardation = rep(retardation, n_values),
+      v = rep(v_values, n_values),
+      hl = rep(hl, n_values),
+      koc = rep(koc, n_values),
+      foc = rep(foc, n_values),
       distance = rep(x_values, each = length(t_values)),
-      dispersion = rep(D_values, each = length(t_values) * length(x_values)),
-      Kd = rep(kd, length(t_values) * length(x_values)),
-      log_koc = rep(log_koc, length(t_values) * length(x_values))
+      dispersion = rep(D_values, each = n_values),
+      Kd = rep(kd, n_values),
+      log_koc = rep(log_koc, n_values)
     )
 
   })
