@@ -59,7 +59,7 @@
       <h1>Tutorial</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/KWB-R/kwb.1dbear/blob/main/vignettes/Tutorial.Rmd" class="external-link"><code>vignettes/Tutorial.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/KWB-R/kwb.1dbear/blob/dev/vignettes/Tutorial.Rmd" class="external-link"><code>vignettes/Tutorial.Rmd</code></a></small>
       <div class="d-none name"><code>Tutorial.Rmd</code></div>
     </div>
 
@@ -72,15 +72,12 @@
 <h3 id="budapest-tahi">Budapest Tahi<a class="anchor" aria-label="anchor" href="#budapest-tahi"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">hl_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">2000</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">bear1d_tahi_combined</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">bear1d_tahi_combined</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
 <span>  n_values <span class="op">=</span> <span class="fl">0.3</span>,</span>
 <span>  rs_values <span class="op">=</span> <span class="fl">2.7</span>,</span>
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
 <span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2.9</span><span class="op">)</span>,</span>
-<span>  hl_values <span class="op">=</span> <span class="va">hl_values</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">2000</span><span class="op">)</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">2.14</span>,</span>
 <span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
@@ -88,26 +85,23 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span>bear1d_list <span class="op">=</span> <span class="va">bear1d_tahi_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_tahi_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Tutorial_files/figure-html/Budapest_Tahi-1.png" width="672"></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
-<span><span class="va">log_koc_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="va">bear1d_tahi_heatmap</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
 <span>  n_values <span class="op">=</span> <span class="fl">0.3</span>,</span>
 <span>  rs_values <span class="op">=</span> <span class="fl">2.7</span>,</span>
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
-<span>  log_koc_values <span class="op">=</span> <span class="va">log_koc_values</span>,</span>
+<span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
 <span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">2.14</span>,</span>
-<span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">hl_values</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">log_koc_values</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  x_values <span class="op">=</span> <span class="fl">60</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span>bear1d_list <span class="op">=</span> <span class="va">bear1d_tahi_heatmap</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span><span class="va">bear1d_tahi_heatmap</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 14 rows containing non-finite outside the scale range</span></span>
 <span><span class="co">#&gt; (`stat_contour()`).</span></span>
 <span><span class="co">#&gt; Warning: The following aesthetics were dropped during statistical transformation: <span style="color: #00BB00;">fill</span>.</span></span>
@@ -127,7 +121,6 @@
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
 <span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.9</span><span class="op">)</span>,</span>
 <span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">2000</span><span class="op">)</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">1.38</span>,</span>
 <span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">700</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
@@ -135,22 +128,19 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span>bear1d_list <span class="op">=</span> <span class="va">bear1d_surany_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_surany_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Tutorial_files/figure-html/Budapest_Surany-1.png" width="672"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
-<span><span class="va">log_koc_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="va">bear1d_surany_heatmap</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
 <span>  n_values <span class="op">=</span> <span class="fl">0.3</span>,</span>
 <span>  rs_values <span class="op">=</span> <span class="fl">2.7</span>,</span>
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
-<span>  log_koc_values <span class="op">=</span> <span class="va">log_koc_values</span>,</span>
-<span>  hl_values <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">1.38</span>,</span>
-<span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">hl_values</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">log_koc_values</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  x_values <span class="op">=</span> <span class="fl">228</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -174,7 +164,6 @@
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
 <span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2.9</span><span class="op">)</span>,</span>
 <span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">2000</span><span class="op">)</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">21.3</span>,</span>
 <span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
@@ -182,22 +171,19 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span>bear1d_list <span class="op">=</span> <span class="va">bear1d_vienna_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_vienna_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Tutorial_files/figure-html/vienna-1.png" width="672"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
-<span><span class="va">log_koc_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="va">bear1d_vienna_heatmap</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
 <span>  n_values <span class="op">=</span> <span class="fl">0.15</span>,</span>
 <span>  rs_values <span class="op">=</span> <span class="fl">2.7</span>,</span>
 <span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
-<span>  log_koc_values <span class="op">=</span> <span class="va">log_koc_values</span>,</span>
-<span>  hl_values <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
-<span>  C0 <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">6</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
 <span>  D_values <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  v_values <span class="op">=</span> <span class="fl">21.3</span>,</span>
-<span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">hl_values</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">log_koc_values</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  x_values <span class="op">=</span> <span class="fl">141</span></span>
 <span><span class="op">)</span></span>
 <span></span>
