@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tutorial • kwb.1dbear</title>
+<title>Case Studies • kwb.1dbear</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Tutorial">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Case Studies">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -33,7 +33,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/Tutorial.html">Tutorial</a></li>
+<li><a class="dropdown-item" href="../articles/case-studies.html">Case Studies</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -56,18 +56,15 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Tutorial</h1>
+      <h1>Case Studies</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/KWB-R/kwb.1dbear/blob/main/vignettes/Tutorial.Rmd" class="external-link"><code>vignettes/Tutorial.Rmd</code></a></small>
-      <div class="d-none name"><code>Tutorial.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/KWB-R/kwb.1dbear/blob/dev/vignettes/case-studies.Rmd" class="external-link"><code>vignettes/case-studies.Rmd</code></a></small>
+      <div class="d-none name"><code>case-studies.Rmd</code></div>
     </div>
 
     
     
-<div class="section level2">
-<h2 id="case-studies">Case Studies<a class="anchor" aria-label="anchor" href="#case-studies"></a>
-</h2>
 <div class="section level3">
 <h3 id="budapest-tahi">Budapest Tahi<a class="anchor" aria-label="anchor" href="#budapest-tahi"></a>
 </h3>
@@ -86,7 +83,7 @@
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_tahi_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/Budapest_Tahi-1.png" width="672"></p>
+<p><img src="case-studies_files/figure-html/Budapest_Tahi-1.png" width="672"></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
@@ -101,15 +98,10 @@
 <span>  x_values <span class="op">=</span> <span class="fl">60</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span><span class="va">bear1d_tahi_heatmap</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span>bear1d_list <span class="op">=</span> <span class="va">bear1d_tahi_heatmap</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 14 rows containing non-finite outside the scale range</span></span>
-<span><span class="co">#&gt; (`stat_contour()`).</span></span>
-<span><span class="co">#&gt; Warning: The following aesthetics were dropped during statistical transformation: <span style="color: #00BB00;">fill</span>.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> This can happen when ggplot fails to infer the correct grouping structure in</span></span>
-<span><span class="co">#&gt;   the data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Did you forget to specify a `group` aesthetic or to convert a numerical</span></span>
-<span><span class="co">#&gt;   variable into a factor?</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/Budapest_Tahi-2.png" width="672"></p>
+<span><span class="co">#&gt; (`stat_contour()`).</span></span></code></pre></div>
+<p><img src="case-studies_files/figure-html/Budapest_Tahi-2.png" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="budapest-surany">Budapest Surany<a class="anchor" aria-label="anchor" href="#budapest-surany"></a>
@@ -129,7 +121,7 @@
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_surany_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/Budapest_Surany-1.png" width="672"></p>
+<p><img src="case-studies_files/figure-html/Budapest_Surany-1.png" width="672"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
@@ -146,13 +138,8 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span><span class="va">bear1d_surany_heatmap</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 58 rows containing non-finite outside the scale range</span></span>
-<span><span class="co">#&gt; (`stat_contour()`).</span></span>
-<span><span class="co">#&gt; Warning: The following aesthetics were dropped during statistical transformation: <span style="color: #00BB00;">fill</span>.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> This can happen when ggplot fails to infer the correct grouping structure in</span></span>
-<span><span class="co">#&gt;   the data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Did you forget to specify a `group` aesthetic or to convert a numerical</span></span>
-<span><span class="co">#&gt;   variable into a factor?</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/Budapest_Surany-2.png" width="672"></p>
+<span><span class="co">#&gt; (`stat_contour()`).</span></span></code></pre></div>
+<p><img src="case-studies_files/figure-html/Budapest_Surany-2.png" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="vienna">Vienna<a class="anchor" aria-label="anchor" href="#vienna"></a>
@@ -172,7 +159,7 @@
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_combined.html">plot_combined</a></span><span class="op">(</span><span class="va">bear1d_vienna_combined</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/vienna-1.png" width="672"></p>
+<p><img src="case-studies_files/figure-html/vienna-1.png" width="672"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate heat map</span></span>
@@ -189,14 +176,8 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span><span class="va">bear1d_vienna_heatmap</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 80 rows containing non-finite outside the scale range</span></span>
-<span><span class="co">#&gt; (`stat_contour()`).</span></span>
-<span><span class="co">#&gt; Warning: The following aesthetics were dropped during statistical transformation: <span style="color: #00BB00;">fill</span>.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> This can happen when ggplot fails to infer the correct grouping structure in</span></span>
-<span><span class="co">#&gt;   the data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Did you forget to specify a `group` aesthetic or to convert a numerical</span></span>
-<span><span class="co">#&gt;   variable into a factor?</span></span></code></pre></div>
-<p><img src="Tutorial_files/figure-html/vienna-2.png" width="672"></p>
-</div>
+<span><span class="co">#&gt; (`stat_contour()`).</span></span></code></pre></div>
+<p><img src="case-studies_files/figure-html/vienna-2.png" width="672"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
