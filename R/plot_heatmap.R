@@ -32,10 +32,11 @@ plot_heatmap <- function(bear1d_list)
   heatmap_plot <- data %>%
     ggplot2::ggplot(ggplot2::aes(
       x = .data$log_koc,
-      y = .data$hl,
+      y = .data$hl
+    )) +
+    ggplot2::geom_tile(ggplot2::aes(
       fill = .data$Cx
     )) +
-    ggplot2::geom_tile() +
     ggplot2::geom_rect(
       data = rect_data,
       ggplot2::aes(
