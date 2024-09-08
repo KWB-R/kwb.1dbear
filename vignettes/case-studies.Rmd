@@ -47,7 +47,7 @@ bear1d_tahi_heatmap <- kwb.1dbear::calculate_bear1d(
   x_values = 60
 )
 
-print(kwb.1dbear::plot_heatmap(bear1d_list = bear1d_tahi_heatmap))
+print(kwb.1dbear::plot_heatmap(bear1d_tahi_heatmap))
 ```
 
 ### Budapest Surany
