@@ -13,7 +13,7 @@ calculate_bear1d(
   C0 = 1,
   D_values,
   v_values,
-  t_values,
+  t_values = max(hl_values * max(log_koc_values)),
   x_values
 )
 }
@@ -34,7 +34,7 @@ calculate_bear1d(
 
 \item{v_values}{average linear ground water velocity (L/T)}
 
-\item{t_values}{time (T)}
+\item{t_values}{time (T), default: max(hl_values * max(log_koc_values))}
 
 \item{x_values}{flow path distance (L)}
 }

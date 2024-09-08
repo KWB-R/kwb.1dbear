@@ -8,7 +8,7 @@
 #' @param C0 initial concentration of the solute (M/L3)
 #' @param D_values coefficient of longitudinal dispersion (L2/T)
 #' @param v_values average linear ground water velocity (L/T)
-#' @param t_values time (T)
+#' @param t_values time (T), default: max(hl_values * max(log_koc_values))
 #' @param x_values flow path distance (L)
 #'
 #' @return Bear 1D results
@@ -35,7 +35,7 @@ calculate_bear1d <- function(
     C0 = 1,
     D_values,
     v_values,
-    t_values,
+    t_values = max(hl_values * max(log_koc_values)),
     x_values
 )
 {
