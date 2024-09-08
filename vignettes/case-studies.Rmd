@@ -1,10 +1,10 @@
 ---
 editor_options: 
   chunk_output_type: console
-title: "Tutorial"
+title: "Case Studies"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Tutorial}
+  %\VignetteIndexEntry{Case Studies}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,8 +16,6 @@ knitr::opts_chunk$set(
   fig.width = 7
 )
 ```
-
-## Case Studies 
 
 ### Budapest Tahi
 

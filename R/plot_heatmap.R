@@ -13,20 +13,14 @@ plot_heatmap <- function(bear1d_list)
   ## Create rectangle to plot parameter values on the heatmap plot
   ###############################################################
 
-  # rect_data <- data.frame( ### Surany Parameters
-  #   xmin = 1, xmax = 4,
-  #   ymin = 120, ymax = 600
-  # )
+  ### Surany Parameters
+  # rect_data <- data.frame(xmin = 1, xmax = 4, ymin = 120, ymax = 600)
 
-  # rect_data <- data.frame( ### Surany Parameters
-  #  xmin = 1, xmax = 1.9,
-  #  ymin = 500, ymax = 2000
-  # )
+  ### Surany Parameters
+  # rect_data <- data.frame(xmin = 1, xmax = 1.9, ymin = 500, ymax = 2000)
 
-  rect_data <- data.frame( ### Vienna / Tahi (10 PFAS) Parameters
-    xmin = 1, xmax = 2.9,
-    ymin = 500, ymax = 2000
-  )
+  ### Vienna / Tahi (10 PFAS) Parameters
+  rect_data <- data.frame(xmin = 1, xmax = 2.9, ymin = 500, ymax = 2000)
 
   ################################################################
 
@@ -37,11 +31,12 @@ plot_heatmap <- function(bear1d_list)
   # Create a heatmap using ggplot2
   heatmap_plot <- data %>%
     ggplot2::ggplot(ggplot2::aes(
-      y = .data$hl,
       x = .data$log_koc,
+      y = .data$hl
+    )) +
+    ggplot2::geom_tile(ggplot2::aes(
       fill = .data$Cx
     )) +
-    ggplot2::geom_tile() +
     ggplot2::geom_rect(
       data = rect_data,
       ggplot2::aes(
@@ -103,7 +98,7 @@ plot_heatmap <- function(bear1d_list)
     ) +
     ggplot2::theme_bw() +
     ggplot2::theme(
-      axis.text.x = text_element,  # Adjust the size as needed
+      axis.text.x = text_element,
       axis.text.y = text_element,
       axis.title.x = text_element,
       axis.title.y = text_element
