@@ -1,7 +1,7 @@
 Package: kwb.1dbear
 Title: R Package for Generic Calculation of Attenuation of PMT & Other
     Substances During Riverbank Filtration
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(
     person("Dwight", "Baldwin", , "dwight.baldwin@kompetenz-wasser.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9329-5973")),
