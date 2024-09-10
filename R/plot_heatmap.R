@@ -1,15 +1,18 @@
 #' Plot Heatmap
 #'
 #' @param bear1d_list Bear1D list as retrieved by \code{\link{calculate_bear1d}}
-#'
+#' @param rect_data data.frame with xmin/xmax/ymin/ymax parameters (default: NULL)
+#' @param measured_removal in percent (default: NULL)
 #' @return heatmap plot
 #' @export
 #' @importFrom rlang .data
 #' @importFrom dplyr bind_rows
 #' @importFrom  ggplot2 geom_tile geom_rect scale_fill_gradientn theme_bw
 #' theme element_text xlab ylab labs aes
-plot_heatmap <- function(bear1d_list)
+plot_heatmap <- function(bear1d_list, rect_data = NULL, measured_removal = NULL)
 {
+  inputs <- attr(bear1d_list, "inputs")
+
   ## Create rectangle to plot parameter values on the heatmap plot
   ###############################################################
 
@@ -20,7 +23,7 @@ plot_heatmap <- function(bear1d_list)
   # rect_data <- data.frame(xmin = 1, xmax = 1.9, ymin = 500, ymax = 2000)
 
   ### Vienna / Tahi (10 PFAS) Parameters
-  rect_data <- data.frame(xmin = 1, xmax = 2.9, ymin = 500, ymax = 2000)
+  #rect_data <- data.frame(xmin = 1, xmax = 2.9, ymin = 500, ymax = 2000)
 
   ################################################################
 
@@ -36,7 +39,10 @@ plot_heatmap <- function(bear1d_list)
     )) +
     ggplot2::geom_tile(ggplot2::aes(
       fill = .data$Cx
-    )) +
+    ))
+
+  if(!is.null(rect_data)) {
+  heatmap_plot <- heatmap_plot +
     ggplot2::geom_rect(
       data = rect_data,
       ggplot2::aes(
@@ -49,8 +55,12 @@ plot_heatmap <- function(bear1d_list)
       color = "black",
       alpha = 0.3,
       inherit.aes = FALSE
-    ) +
+    )
+  }
 
+
+  if(!is.null(measured_removal)) {
+  heatmap_plot <- heatmap_plot +
     # Generic contours
     # geom_contour(aes(z = Cx), breaks = c(0.1, 0.2, 0.3, 0.4, 0.5,
     #                                      0.6, 0.7, 0.8, 0.9), color = "white", size = 0.5) + # add contour lines
@@ -60,10 +70,13 @@ plot_heatmap <- function(bear1d_list)
     # Vienna CS contours
     ggplot2::geom_contour(
       ggplot2::aes(z = .data$Cx),
-      breaks = c(0.93),
+      breaks = measured_removal,
       color = "white",
       linewidth = 1.5
-    ) +
+    )
+  }
+
+  heatmap_plot <- heatmap_plot +
 
     # C/C0 10 PFAS MW1
     # geom_contour(aes(z=Cx), breaks = c(0.96), color = "yellow", size = 1)+ # C/C0 Carbamazepine
@@ -106,8 +119,8 @@ plot_heatmap <- function(bear1d_list)
     ggplot2::labs(
       title = sprintf(
         "Residence time[d] = %s, foc[-] = %s",
-        round(attr(bear1d_list, "x_values")/attr(bear1d_list, "v_values"), 0),
-        paste(attr(bear1d_list, "foc_values"), collapse = ",")
+        round(inputs$x_values/inputs$v_values, 0),
+        paste(inputs$foc_values, collapse = ",")
       ),
       x = "Log Koc",
       y = "Half-life (days)",

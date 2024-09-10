@@ -10,6 +10,8 @@
 #' scale_y_continuous scale_x_continuous theme element_text xlab ylab labs
 plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
 {
+  inputs <- attr(bear1d_list, "inputs")
+
   # Enlarged axis + tick labels
   text_element <- ggplot2::element_text(size = text_size)
 
@@ -40,14 +42,14 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
 
   # Change legend labels for color and linetype
   # Use a gradient of light blue to red, with purple middle to avoid grayness
-  tmax <- max(attr(bear1d_list, "t_values"))
+  tmax <- max(inputs$t_values)
 
-  combined_plot +
+  combined_plot <- combined_plot +
     ggplot2::scale_color_gradient2(
       low = "red",
       mid = "purple",
       high = "blue",
-      midpoint = mean(attr(bear1d_list, "hl_values"))
+      midpoint = mean(inputs$hl_values)
     ) +
     ggplot2::labs(linetype = "Log Koc", color = "Half-Life") +
 
@@ -60,4 +62,12 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
       limits = c(0, tmax),
       breaks = seq(0, tmax, by = 200)
     )
+
+   list(plot = combined_plot,
+        rect_data = data.frame(xmin = min(inputs$log_koc_values),
+                               xmax = max(inputs$log_koc_values),
+                               ymin = min(inputs$hl_values),
+                               ymax = max(inputs$hl_values))
+        )
+
 }
