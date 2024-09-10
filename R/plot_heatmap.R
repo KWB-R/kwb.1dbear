@@ -10,6 +10,8 @@
 #' theme element_text xlab ylab labs aes
 plot_heatmap <- function(bear1d_list)
 {
+  inputs <- attr(bear1d_list, "inputs")
+
   ## Create rectangle to plot parameter values on the heatmap plot
   ###############################################################
 
@@ -106,8 +108,8 @@ plot_heatmap <- function(bear1d_list)
     ggplot2::labs(
       title = sprintf(
         "Residence time[d] = %s, foc[-] = %s",
-        round(attr(bear1d_list, "x_values")/attr(bear1d_list, "v_values"), 0),
-        paste(attr(bear1d_list, "foc_values"), collapse = ",")
+        round(inputs$x_values/inputs$v_values, 0),
+        paste(inputs$foc_values, collapse = ",")
       ),
       x = "Log Koc",
       y = "Half-life (days)",

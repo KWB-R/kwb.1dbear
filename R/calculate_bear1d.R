@@ -91,15 +91,17 @@ calculate_bear1d <- function(
   # Return all inputs as attributes
   structure(
     result,
-    n_values = n_values,
-    rs_values = rs_values,
-    foc_values = foc_values,
-    log_koc_values = log_koc_values,
-    hl_values = hl_values,
-    C0 = C0,
-    D_values = D_values,
-    v_values = v_values,
-    t_values = t_values,
-    x_values = x_values
+    inputs = list(
+      n_values = n_values,
+      rs_values = rs_values,
+      foc_values = foc_values,
+      log_koc_values = log_koc_values,
+      hl_values = hl_values,
+      C0 = C0,
+      D_values = D_values,
+      v_values = v_values,
+      t_values = t_values,
+      x_values = x_values
+    )
   )
 }
