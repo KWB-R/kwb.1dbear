@@ -44,7 +44,7 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
   # Use a gradient of light blue to red, with purple middle to avoid grayness
   tmax <- max(inputs$t_values)
 
-  combined_plot +
+  combined_plot <- combined_plot +
     ggplot2::scale_color_gradient2(
       low = "red",
       mid = "purple",
@@ -63,6 +63,11 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
       breaks = seq(0, tmax, by = 200)
     )
 
-   #min(inputs$log_koc_values)
-   #max(inputs$log_koc_values)
+   list(plot = combined_plot,
+        rect_data = data.frame(xmin = min(inputs$log_koc_values),
+                               xmax = max(inputs$log_koc_values),
+                               ymin = min(inputs$hl_values),
+                               ymax = max(inputs$hl_values))
+        )
+
 }

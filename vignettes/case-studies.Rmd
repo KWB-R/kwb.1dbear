@@ -33,21 +33,29 @@ bear1d_tahi_combined <- kwb.1dbear::calculate_bear1d(
 )
 
 # Combine the plots
-print(kwb.1dbear::plot_combined(bear1d_tahi_combined))
+tahi_combined <- kwb.1dbear::plot_combined(bear1d_tahi_combined)
+
+print(tahi_combined$plot)
 
 # Generate heat map
+log_koc_values <- seq(0.1, 6, length.out = 100)
+hl_values <- seq(1, 2000, length.out = 100)
+
+
 bear1d_tahi_heatmap <- kwb.1dbear::calculate_bear1d(
   n_values = 0.3,
   rs_values = 2.7,
   foc_values = 0.002,
-  log_koc_values = seq(0.1, 6, length.out = 100),
-  hl_values = seq(1, 2000, length.out = 100),
+  log_koc_values = log_koc_values,
+  hl_values = hl_values,
   D_values = 10,
   v_values = 2.14,
   x_values = 60
 )
 
-print(kwb.1dbear::plot_heatmap(bear1d_tahi_heatmap))
+print(kwb.1dbear::plot_heatmap(bear1d_tahi_heatmap,
+                               rect_data = tahi_combined$rect_data,
+                               measured_removal = 0.93))
 ```
 
 ### Budapest Surany
@@ -66,7 +74,10 @@ bear1d_surany_combined <- kwb.1dbear::calculate_bear1d(
 )
 
 # Combine the plots
-print(kwb.1dbear::plot_combined(bear1d_surany_combined))
+surany_combined <- kwb.1dbear::plot_combined(bear1d_surany_combined)
+
+print(surany_combined$plot)
+
 
 # Generate heat map
 bear1d_surany_heatmap <- kwb.1dbear::calculate_bear1d(
@@ -80,7 +91,9 @@ bear1d_surany_heatmap <- kwb.1dbear::calculate_bear1d(
   x_values = 228
 )
 
-print(kwb.1dbear::plot_heatmap(bear1d_surany_heatmap))
+print(kwb.1dbear::plot_heatmap(bear1d_surany_heatmap,
+                               rect_data = surany_combined$rect_data,
+                               measured_removal = 0.9))
 ```
 
 ### Vienna
@@ -99,7 +112,9 @@ bear1d_vienna_combined <- kwb.1dbear::calculate_bear1d(
 )
 
 # Combine the plots
-print(kwb.1dbear::plot_combined(bear1d_vienna_combined))
+vienna_combined <- kwb.1dbear::plot_combined(bear1d_vienna_combined)
+
+print(vienna_combined$plot)
 
 # Generate heat map
 bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(
@@ -113,5 +128,7 @@ bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(
   x_values = 141
 )
 
-print(kwb.1dbear::plot_heatmap(bear1d_vienna_heatmap))
+print(kwb.1dbear::plot_heatmap(bear1d_vienna_heatmap,
+                               rect_data = vienna_combined$rect_data,
+                               measured_removal = 0.9))
 ```
