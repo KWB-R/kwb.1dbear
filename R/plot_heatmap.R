@@ -105,7 +105,7 @@ plot_heatmap <- function(bear1d_list)
     ) +
     ggplot2::labs(
       title = sprintf(
-        "Residence time[d] = %f, foc[-] = %s",
+        "Residence time[d] = %s, foc[-] = %s",
         round(attr(bear1d_list, "x_values")/attr(bear1d_list, "v_values"), 0),
         paste(attr(bear1d_list, "foc_values"), collapse = ",")
       ),
