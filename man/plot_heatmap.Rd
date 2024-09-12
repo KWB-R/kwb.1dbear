@@ -4,14 +4,14 @@
 \alias{plot_heatmap}
 \title{Plot Heatmap}
 \usage{
-plot_heatmap(bear1d_list, rect_data = NULL, measured_removal = NULL)
+plot_heatmap(bear1d_list, rect_data = NULL, measured_C_C0 = NULL)
 }
 \arguments{
 \item{bear1d_list}{Bear1D list as retrieved by \code{\link{calculate_bear1d}}}
 
 \item{rect_data}{data.frame with xmin/xmax/ymin/ymax parameters (default: NULL)}
 
-\item{measured_removal}{in percent (default: NULL)}
+\item{measured_C_C0}{in percent (default: NULL)}
 }
 \value{
 heatmap plot
