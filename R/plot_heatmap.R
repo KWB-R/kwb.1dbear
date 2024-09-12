@@ -2,14 +2,14 @@
 #'
 #' @param bear1d_list Bear1D list as retrieved by \code{\link{calculate_bear1d}}
 #' @param rect_data data.frame with xmin/xmax/ymin/ymax parameters (default: NULL)
-#' @param measured_removal in percent (default: NULL)
+#' @param measured_C_C0 in percent (default: NULL)
 #' @return heatmap plot
 #' @export
 #' @importFrom rlang .data
 #' @importFrom dplyr bind_rows
 #' @importFrom  ggplot2 geom_tile geom_rect scale_fill_gradientn theme_bw
 #' theme element_text xlab ylab labs aes
-plot_heatmap <- function(bear1d_list, rect_data = NULL, measured_removal = NULL)
+plot_heatmap <- function(bear1d_list, rect_data = NULL, measured_C_C0 = NULL)
 {
   inputs <- attr(bear1d_list, "inputs")
 
@@ -59,7 +59,7 @@ plot_heatmap <- function(bear1d_list, rect_data = NULL, measured_removal = NULL)
   }
 
 
-  if(!is.null(measured_removal)) {
+  if(!is.null(measured_C_C0)) {
   heatmap_plot <- heatmap_plot +
     # Generic contours
     # geom_contour(aes(z = Cx), breaks = c(0.1, 0.2, 0.3, 0.4, 0.5,
@@ -70,7 +70,7 @@ plot_heatmap <- function(bear1d_list, rect_data = NULL, measured_removal = NULL)
     # Vienna CS contours
     ggplot2::geom_contour(
       ggplot2::aes(z = .data$Cx),
-      breaks = measured_removal,
+      breaks = measured_C_C0,
       color = "white",
       linewidth = 1.5
     )
