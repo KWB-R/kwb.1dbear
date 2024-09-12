@@ -28,7 +28,7 @@ bear1d_tahi_combined <- kwb.1dbear::calculate_bear1d(
   hl_values = c(500, 2000),
   D_values = 10,
   v_values = 2.14,
-  t_values = seq(0, 350, by = 1),
+  t_values = seq(0, 700, by = 1),
   x_values = 60
 )
 
@@ -55,7 +55,7 @@ bear1d_tahi_heatmap <- kwb.1dbear::calculate_bear1d(
 
 print(kwb.1dbear::plot_heatmap(bear1d_tahi_heatmap,
                                rect_data = tahi_combined$rect_data,
-                               measured_removal = 0.93))
+                               measured_C_C0 = 0.73))
 ```
 
 ### Budapest Surany
@@ -93,7 +93,7 @@ bear1d_surany_heatmap <- kwb.1dbear::calculate_bear1d(
 
 print(kwb.1dbear::plot_heatmap(bear1d_surany_heatmap,
                                rect_data = surany_combined$rect_data,
-                               measured_removal = 0.9))
+                               measured_C_C0 = 0.8))
 ```
 
 ### Vienna
@@ -130,5 +130,5 @@ bear1d_vienna_heatmap <- kwb.1dbear::calculate_bear1d(
 
 print(kwb.1dbear::plot_heatmap(bear1d_vienna_heatmap,
                                rect_data = vienna_combined$rect_data,
-                               measured_removal = 0.9))
+                               measured_C_C0 = 0.9))
 ```
