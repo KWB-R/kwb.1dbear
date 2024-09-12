@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   case-studies: case-studies.html
-last_built: 2024-09-10T13:14Z
+last_built: 2024-09-12T09:09Z
 urls:
   reference: https://kwb-r.github.io/kwb.1dbear/reference
   article: https://kwb-r.github.io/kwb.1dbear/articles
