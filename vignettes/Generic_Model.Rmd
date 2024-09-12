@@ -1,0 +1,66 @@
+---
+title: "Generic Model"
+author: "Dwight Baldwin"
+date: "2024-09-12"
+output: html_document
+
+---
+editor_options: 
+  chunk_output_type: console
+title: "Generic Model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Generic Model}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7
+)
+```
+
+### Generic riverbank filtrate model
+
+```{r Generic_model}
+bear1d_Generic_combined <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.3,
+  rs_values = 2.65,
+  foc_values = 0.002,
+  log_koc_values = c(1, 4),
+  hl_values = c(120, 600),
+  D_values = 2,
+  v_values = 1,
+  t_values = seq(0, 1000, by = 1),
+  x_values = 50
+)
+
+# Combine the plots
+Generic_combined <- kwb.1dbear::plot_combined(bear1d_Generic_combined)
+
+print(Generic_combined$plot)
+
+# Generate heat map
+log_koc_values <- seq(0.1, 6, length.out = 100)
+hl_values <- seq(1, 800, length.out = 100)
+
+
+bear1d_Generic_heatmap <- kwb.1dbear::calculate_bear1d(
+  n_values = 0.3,
+  rs_values = 2.65,
+  foc_values = 0.002,
+  log_koc_values = log_koc_values,
+  hl_values = hl_values,
+  D_values = 2,
+  v_values = 1,
+  x_values = 50
+)
+
+print(kwb.1dbear::plot_heatmap(bear1d_Generic_heatmap,
+                               rect_data = Generic_combined$rect_data,
+                               measured_C_C0 = 0.73))
+```
+
