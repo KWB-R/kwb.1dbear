@@ -71,6 +71,6 @@ rect_data <- NULL
 
 print(kwb.1dbear::plot_heatmap(bear1d_Generic_heatmap,
                                rect_data = rect_data,
-                               measured_C_C0 = NULL))
+                               measured_C_C0 = NULL)) # compare to a measured C/C0
 ```
 
