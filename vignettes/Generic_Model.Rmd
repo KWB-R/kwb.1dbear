@@ -26,16 +26,19 @@ knitr::opts_chunk$set(
 ### Generic riverbank filtrate model
 
 ```{r Generic_model}
+#Generate breakthrough curve
+
+
 bear1d_Generic_combined <- kwb.1dbear::calculate_bear1d(
-  n_values = 0.3,
-  rs_values = 2.65,
-  foc_values = 0.002,
-  log_koc_values = c(1, 4),
-  hl_values = c(120, 600),
-  D_values = 2,
-  v_values = 1,
-  t_values = seq(0, 1000, by = 1),
-  x_values = 50
+  n_values = 0.3, # porosity
+  rs_values = 2.65, # aquifer material density [g/cm^3]
+  foc_values = 0.0001, # fraction of organic carbon [g/g]
+  log_koc_values = c(1, 4), # organic carbon-mediated sorption coefficient; possible to use multiple
+  hl_values = c(120, 300, 600), # Substance Half live (in days). possible to use multiple at once
+  D_values = 2, # longitudinal dispersion
+  v_values = 1, # water velocity
+  t_values = seq(0, 2000, by = 1), # Time period in days where C/C0 is plotted
+  x_values = 50 # distance [m]
 )
 
 # Combine the plots
@@ -49,18 +52,25 @@ hl_values <- seq(1, 800, length.out = 100)
 
 
 bear1d_Generic_heatmap <- kwb.1dbear::calculate_bear1d(
-  n_values = 0.3,
-  rs_values = 2.65,
-  foc_values = 0.002,
+  n_values = 0.3, # best practices: match the parameters here with the previous function
+  rs_values = 2.65, # best practices: match the parameters here with the previous function
+  foc_values = 0.0001, # best practices: match the parameters here with the previous function
   log_koc_values = log_koc_values,
   hl_values = hl_values,
-  D_values = 2,
-  v_values = 1,
-  x_values = 50
+  D_values = 2, # best practices: match the parameters here with the previous function
+  v_values = 1, # best practices: match the parameters here with the previous function
+  x_values = 50 # best practices: match the parameters here with the previous function
 )
 
+# Default setting
+rect_data <- NULL
+# add custom rectangle for user-specified half-life and Koc values
+# rect_data <- data.frame(xmin = 1, xmax = 4, ymin = 120, ymax = 600) 
+# If you'd like to use the parameters from the breakthrough curve, comment the following line out
+#rect_data <- Generic_combined$rect_data
+
 print(kwb.1dbear::plot_heatmap(bear1d_Generic_heatmap,
-                               rect_data = Generic_combined$rect_data,
-                               measured_C_C0 = 0.73))
+                               rect_data = rect_data,
+                               measured_C_C0 = NULL))
 ```
 

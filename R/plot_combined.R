@@ -60,7 +60,7 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
     ) + # Adjust the tick spacing as needed
     ggplot2::scale_x_continuous(
       limits = c(0, tmax),
-      breaks = seq(0, tmax, by = 200)
+      breaks = seq(0, tmax, by = 400)
     )
 
    list(plot = combined_plot,
