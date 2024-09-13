@@ -3,12 +3,14 @@
 #' @param bear1d_list Bear1D list as retrieved by \code{\link{calculate_bear1d}}
 #' @param text_size size of plot title and axis labels, default: 20
 #' @param line_width line width, default: 1.25
+#' @param xbreaks breaks on x axis, default:  200
 #' @return combined plot
 #' @export
 #' @importFrom rlang .data
 #' @importFrom  ggplot2 ggplot theme_bw geom_line scale_color_gradient2
 #' scale_y_continuous scale_x_continuous theme element_text xlab ylab labs
-plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
+
+plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25, xbreaks = 200)
 {
   inputs <- attr(bear1d_list, "inputs")
 
@@ -60,7 +62,7 @@ plot_combined <- function(bear1d_list, text_size = 20, line_width = 1.25)
     ) + # Adjust the tick spacing as needed
     ggplot2::scale_x_continuous(
       limits = c(0, tmax),
-      breaks = seq(0, tmax, by = 400)
+      breaks = seq(0, tmax, by = xbreaks)
     )
 
    list(plot = combined_plot,

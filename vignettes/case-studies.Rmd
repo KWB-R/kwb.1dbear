@@ -107,7 +107,7 @@ bear1d_vienna_combined <- kwb.1dbear::calculate_bear1d(
   hl_values = c(500, 2000),
   D_values = 10,
   v_values = 21.3,
-  t_values = seq(0, 350, by = 1),
+  t_values = seq(0, 400, by = 1),
   x_values = 141
 )
 

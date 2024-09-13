@@ -4,7 +4,7 @@
 \alias{plot_combined}
 \title{Plot Combined}
 \usage{
-plot_combined(bear1d_list, text_size = 20, line_width = 1.25)
+plot_combined(bear1d_list, text_size = 20, line_width = 1.25, xbreaks = 200)
 }
 \arguments{
 \item{bear1d_list}{Bear1D list as retrieved by \code{\link{calculate_bear1d}}}
@@ -12,6 +12,8 @@ plot_combined(bear1d_list, text_size = 20, line_width = 1.25)
 \item{text_size}{size of plot title and axis labels, default: 20}
 
 \item{line_width}{line width, default: 1.25}
+
+\item{xbreaks}{breaks on x axis, default:  200}
 }
 \value{
 combined plot
