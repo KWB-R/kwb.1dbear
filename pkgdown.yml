@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   case-studies: case-studies.html
   Generic_Model: Generic_Model.html
-last_built: 2024-09-13T14:29Z
+last_built: 2024-09-13T15:01Z
 urls:
   reference: https://kwb-r.github.io/kwb.1dbear/reference
   article: https://kwb-r.github.io/kwb.1dbear/articles
