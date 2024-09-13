@@ -75,16 +75,19 @@ output: rmarkdown::html_vignette vignette: &gt; % % % —</p>
 <h3 id="generic-riverbank-filtrate-model">Generic riverbank filtrate model<a class="anchor" aria-label="anchor" href="#generic-riverbank-filtrate-model"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">bear1d_Generic_combined</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
-<span>  n_values <span class="op">=</span> <span class="fl">0.3</span>,</span>
-<span>  rs_values <span class="op">=</span> <span class="fl">2.65</span>,</span>
-<span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
-<span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>,</span>
-<span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">600</span><span class="op">)</span>,</span>
-<span>  D_values <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  v_values <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1000</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>  x_values <span class="op">=</span> <span class="fl">50</span></span>
+<code class="sourceCode R"><span><span class="co">#Generate breakthrough curve</span></span>
+<span></span>
+<span></span>
+<span><span class="va">bear1d_Generic_combined</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
+<span>  n_values <span class="op">=</span> <span class="fl">0.3</span>, <span class="co"># porosity</span></span>
+<span>  rs_values <span class="op">=</span> <span class="fl">2.65</span>, <span class="co"># aquifer material density [g/cm^3]</span></span>
+<span>  foc_values <span class="op">=</span> <span class="fl">0.0001</span>, <span class="co"># fraction of organic carbon [g/g]</span></span>
+<span>  log_koc_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>, <span class="co"># organic carbon-mediated sorption coefficient; possible to use multiple</span></span>
+<span>  hl_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">300</span>, <span class="fl">600</span><span class="op">)</span>, <span class="co"># Substance Half live (in days). possible to use multiple at once</span></span>
+<span>  D_values <span class="op">=</span> <span class="fl">2</span>, <span class="co"># longitudinal dispersion</span></span>
+<span>  v_values <span class="op">=</span> <span class="fl">1</span>, <span class="co"># water velocity</span></span>
+<span>  t_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2000</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, <span class="co"># Time period in days where C/C0 is plotted</span></span>
+<span>  x_values <span class="op">=</span> <span class="fl">50</span> <span class="co"># distance [m]</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Combine the plots</span></span>
@@ -100,21 +103,26 @@ output: rmarkdown::html_vignette vignette: &gt; % % % —</p>
 <span></span>
 <span></span>
 <span><span class="va">bear1d_Generic_heatmap</span> <span class="op">&lt;-</span> <span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_bear1d.html">calculate_bear1d</a></span><span class="op">(</span></span>
-<span>  n_values <span class="op">=</span> <span class="fl">0.3</span>,</span>
-<span>  rs_values <span class="op">=</span> <span class="fl">2.65</span>,</span>
-<span>  foc_values <span class="op">=</span> <span class="fl">0.002</span>,</span>
+<span>  n_values <span class="op">=</span> <span class="fl">0.3</span>, <span class="co"># best practices: match the parameters here with the previous function</span></span>
+<span>  rs_values <span class="op">=</span> <span class="fl">2.65</span>, <span class="co"># best practices: match the parameters here with the previous function</span></span>
+<span>  foc_values <span class="op">=</span> <span class="fl">0.0001</span>, <span class="co"># best practices: match the parameters here with the previous function</span></span>
 <span>  log_koc_values <span class="op">=</span> <span class="va">log_koc_values</span>,</span>
 <span>  hl_values <span class="op">=</span> <span class="va">hl_values</span>,</span>
-<span>  D_values <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  v_values <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  x_values <span class="op">=</span> <span class="fl">50</span></span>
+<span>  D_values <span class="op">=</span> <span class="fl">2</span>, <span class="co"># best practices: match the parameters here with the previous function</span></span>
+<span>  v_values <span class="op">=</span> <span class="fl">1</span>, <span class="co"># best practices: match the parameters here with the previous function</span></span>
+<span>  x_values <span class="op">=</span> <span class="fl">50</span> <span class="co"># best practices: match the parameters here with the previous function</span></span>
 <span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Default setting</span></span>
+<span><span class="va">rect_data</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="co"># add custom rectangle for user-specified half-life and Koc values</span></span>
+<span><span class="co"># rect_data &lt;- data.frame(xmin = 1, xmax = 4, ymin = 120, ymax = 600) </span></span>
+<span><span class="co"># If you'd like to use the parameters from the breakthrough curve, comment the following line out</span></span>
+<span><span class="co">#rect_data &lt;- Generic_combined$rect_data</span></span>
+<span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">kwb.1dbear</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_heatmap.html">plot_heatmap</a></span><span class="op">(</span><span class="va">bear1d_Generic_heatmap</span>,</span>
-<span>                               rect_data <span class="op">=</span> <span class="va">Generic_combined</span><span class="op">$</span><span class="va">rect_data</span>,</span>
-<span>                               measured_C_C0 <span class="op">=</span> <span class="fl">0.73</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: Removed 32 rows containing non-finite outside the scale range</span></span>
-<span><span class="co">#&gt; (`stat_contour()`).</span></span></code></pre></div>
+<span>                               rect_data <span class="op">=</span> <span class="va">rect_data</span>,</span>
+<span>                               measured_C_C0 <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Generic_Model_files/figure-html/Generic_model-2.png" width="672"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
